@@ -16,7 +16,7 @@ set up project
  
 run project
 1. ใช้คำสั่ง ng serve ในการรัน โปรเจค 
-2. เมื่อรันเสร็จ ให้เข้าไปที่ http://localHost:4200/
+2. เมื่อรันเสร็จ ให้เข้าไปที่ http://localhost:4200/
 
 ตัวอย่างหน้าจอเมื่อรันโปรเจคแล้ว
 ![image](https://user-images.githubusercontent.com/111260577/188039775-b1b006d1-bb94-40f1-9cb3-95e5b30829de.png)
