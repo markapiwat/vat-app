@@ -19,3 +19,8 @@ run Project
 1 run project command : ng serve 
 
 เมื่อรันเสร็จแล้ว ให้เข้าไปที่ http://localhost:4200/ หลังจากนั้น ทำการ test ได้เลยครับ
+
+ตัวอย่างหน้าจอ 
+
+![image](https://user-images.githubusercontent.com/111260577/188041963-5bc00326-5e21-4c3b-bf26-82dba43d6807.png)
+
