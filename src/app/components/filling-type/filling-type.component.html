@@ -1,0 +1,12 @@
+<div class="function-title">
+    <div class="section-detail">Type of Filling <span style="color: red;">*</span> </div>
+    <mat-radio-group aria-label="Select an option" >
+      
+        <input class="mat-radio-button" type="radio" value="0" (input)="onSelectRadio($event)" id="Ordinary Filling" [checked]="true" checked ngModel > Ordinary Filling
+        
+        <input class="mat-radio-button" type="radio" value="1" (input)="onSelectRadio($event)" id="Additional Filling" ngModel> Additional Filling
+
+    </mat-radio-group>
+
+</div>
+

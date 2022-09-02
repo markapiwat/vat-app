@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+    <div class="main-header">Submit Tax Filling</div>
+
+    <div class="stepper-wrapper">
+        <div class="stepper-item active">
+          <div class="step-counter">1</div>
+          <div class="step-name">Input-Detail</div>
+        </div>
+        <div class="stepper-item">
+          <div class="step-counter-incomplete">2</div>
+          <div class="step-name">Review & Confirm</div>
+        </div>
+      </div>
+  
+    <div class="card">
+        
+        
+          <div class="function-title "> 1. Tax Filling Detail</div>
+          <div class="titleline"></div>
+            <app-filling-type (selectRadioEmitter)="getselect($event)"></app-filling-type>    
+
+            <div  *ngIf="radioValue === '0'">
+
+              <div class="function-title-sub">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <app-month (monthValueEmitter)="getmonthValue($event)"></app-month>
+                  </div>
+                  <input type="hidden" [value]="monthValue" >
+                  <div class="col-sm-4">
+                    <app-year (yearValueEmitter)="getYearValue($event)"></app-year>
+                  </div>             
+                </div>
+              </div>
+
+            </div>
+
+            <div  *ngIf="radioValue === '1'">
+
+              <div class="function-title-sub">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <app-month (monthValueEmitter)="getmonthValue($event)"></app-month>
+                  </div>
+                  <div class="col-sm-4">
+                    <app-year (yearValueEmitter)="getYearValue($event)"></app-year>
+                  </div>
+                  <div class="col-sm-4">
+                    <app-typefill></app-typefill>
+                  </div>     
+                </div>
+              </div>
+              
+            </div>
+           
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="function-title ">2. Tax Computation </div>
+              </div>
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4">              
+                  <div class="titleEnd"> View Exchange Rate</div>
+              </div>
+              </div>
+                  <div class="titleline"></div>
+
+            <div  *ngIf="radioValue === '0' ">
+                <div class="sub-title">Provide total value taxable electronic service <span style="color: red;"> * </span>  </div>
+
+                
+                  <app-sale-amount (salevalueEmitter)="saleAmount($event)" ></app-sale-amount>
+                  
+                  <app-tax-amount [saleValueResult]="saleTotax(saleValueResult)" (taxValueEmitter)="getTaxValue($event)"></app-tax-amount>
+
+                  <input type="hidden" [value]="taxValue">
+
+                  <div class="mt-4 mb-4"></div>
+                </div>
+
+                <div  *ngIf="radioValue === '1'">
+                  <div class="sub-title">Provide total value taxable electronic service <span style="color: red;"> * </span>  </div>
+                  
+                  <app-sale-amount (salevalueEmitter)="saleAmount($event)" ></app-sale-amount>
+                  
+                  <app-tax-amount [saleValueResult]="saleTotax(saleValueResult)" (taxValueEmitter)="getTaxValue($event)"></app-tax-amount> 
+
+                  <input type="hidden" [value]="taxValue">
+
+                  <div class="sub-title">in case of late filling and payment, or additional filling </div>
+
+                  <app-surcharge></app-surcharge>
+                  <app-penalty></app-penalty>
+                  <app-total-amount></app-total-amount>
+
+                </div>
+                  </div>
+    <div  *ngIf="radioValue === '0' ">
+    <div class="container-fluid p-3">
+      <div class="container btn-footer">
+        <button type="button" class="btn btn-light "  mat-button  >Back</button>
+        <button type="button" class="btn btn btn-dark m-4 " mat-button (click)="onSubmit([saleValueResult,taxValue,radioValue,monthValue,yearValue])">Next</button>
+      </div>
+    </div>
+    </div>
+
+    <div  *ngIf="radioValue === '1' ">
+      <div class="container-fluid p-3">
+        <div class="container btn-footer">
+          <button type="button" class="btn btn-light "  mat-button  >Back</button>
+          <button type="button" class="btn btn btn-dark m-4 " mat-button >Next</button>
+        </div>
+      </div>
+      </div>
+
+</div>
