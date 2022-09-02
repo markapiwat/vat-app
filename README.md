@@ -2,26 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
-## Development server
+โปรเจคนี้พัฒนาด้วย
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular CLI เวอร์ชั่น 12.0.0 ขึ้นไป
 
-## Code scaffolding
+สิ่งที่ต้องมีในการพัฒนาโปรเจคโปรเจค 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+nodejs เวอร์ชั่น 16.17.0 ขึ้นไป และ npm เวอร์ชั่น 8.15.0
 
-## Build
+Setup Project 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. install Dependency : npm install or npm install --force
 
-## Running unit tests
+run Project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1 run project command : ng serve 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+เมื่อรันเสร็จแล้ว ให้เข้าไปที่ http://localhost:4200/ หลังจากนั้น ทำการ test ได้เลยครับ
