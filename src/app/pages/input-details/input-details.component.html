@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<div class="container">
-
+<div class="container" >
+  
     <div class="main-header">Submit Tax Filling</div>
 
     <div class="stepper-wrapper">
@@ -19,18 +19,21 @@
         
           <div class="function-title "> 1. Tax Filling Detail</div>
           <div class="titleline"></div>
-            <app-filling-type (selectRadioEmitter)="getselect($event)"></app-filling-type>    
+
+          <div class="function-title-sub">
+            <app-filling-type (selectRadioEmitter)="getselect($event)"></app-filling-type> 
+          </div>
+               
 
             <div  *ngIf="radioValue === '0'">
 
               <div class="function-title-sub">
                 <div class="row">
-                  <div class="col-sm-4">
-                    <app-month (monthValueEmitter)="getmonthValue($event)"></app-month>
+                  <div class="col-sm-3">
+                    <app-month ></app-month>
                   </div>
-                  <input type="hidden" [value]="monthValue" >
-                  <div class="col-sm-4">
-                    <app-year (yearValueEmitter)="getYearValue($event)"></app-year>
+                  <div class="col-sm-3">
+                    <app-year ></app-year>
                   </div>             
                 </div>
               </div>
@@ -41,13 +44,13 @@
 
               <div class="function-title-sub">
                 <div class="row">
-                  <div class="col-sm-4">
-                    <app-month (monthValueEmitter)="getmonthValue($event)"></app-month>
+                  <div class="col-sm-3">
+                    <app-month ></app-month>
                   </div>
-                  <div class="col-sm-4">
-                    <app-year (yearValueEmitter)="getYearValue($event)"></app-year>
+                  <div class="col-sm-3">
+                    <app-year ></app-year>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                     <app-typefill></app-typefill>
                   </div>     
                 </div>
@@ -86,13 +89,14 @@
                   
                   <app-tax-amount [saleValueResult]="saleTotax(saleValueResult)" (taxValueEmitter)="getTaxValue($event)"></app-tax-amount> 
 
-                  <input type="hidden" [value]="taxValue">
+                  
 
                   <div class="sub-title">in case of late filling and payment, or additional filling </div>
 
-                  <app-surcharge></app-surcharge>
-                  <app-penalty></app-penalty>
-                  <app-total-amount></app-total-amount>
+                  <app-surcharge [taxValueResult]="taxToSurcharge(taxValue)" (surChargeEmitter)="getSurcharge($event)"></app-surcharge>
+                  <app-penalty ></app-penalty>
+                  <app-total-amount ></app-total-amount>
+
 
                 </div>
                   </div>
@@ -100,7 +104,7 @@
     <div class="container-fluid p-3">
       <div class="container btn-footer">
         <button type="button" class="btn btn-light "  mat-button  >Back</button>
-        <button type="button" class="btn btn btn-dark m-4 " mat-button (click)="onSubmit([saleValueResult,taxValue,radioValue,monthValue,yearValue])">Next</button>
+        <button type="button" class="btn btn btn-dark m-4 " mat-button routerLink="review">Next</button>
       </div>
     </div>
     </div>
@@ -109,9 +113,9 @@
       <div class="container-fluid p-3">
         <div class="container btn-footer">
           <button type="button" class="btn btn-light "  mat-button  >Back</button>
-          <button type="button" class="btn btn btn-dark m-4 " mat-button >Next</button>
+          <button type="button" class="btn btn btn-dark m-4 " mat-button routerLink="review">Next</button>
         </div>
       </div>
-      </div>
+    </div>
 
 </div>

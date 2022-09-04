@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { OneService } from 'src/app/services/one/one.service';
 
 
 @Component({
@@ -9,22 +9,20 @@ import { Router } from '@angular/router';
 })
 export class InputDetailsComponent implements OnInit {
 
+  radioValue = '0';
 
   monthValue = [];
 
   yearValue = [] ;
 
   saleValueResult?: number ;
-
-  taxValueResult?: number;
-
-  radioValue = '0';
   
   taxValue?:number;
 
-  constructor(
-    private router: Router
-  ) { }
+  SurchargeValue?:number;
+
+
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
@@ -38,9 +36,19 @@ export class InputDetailsComponent implements OnInit {
     return saleValueResult * vatPercent;
   }
 
-  taxToSurcharge(taxValueResult: any){
-    const vatPercent = 0.1;
-    return taxValueResult * vatPercent;
+  taxToSurcharge(taxValue: any){
+    const surPercent = 0.1;
+    return taxValue * surPercent;
+  }
+  
+  taxAmount(taxValue: any){
+    const penalty = this.one.penalty;
+   return this.SurchargeValue + taxValue + penalty;
+  }
+ 
+
+  getSurcharge(msg:any){
+    this.SurchargeValue = msg
   }
 
   getselect(msg:any){
@@ -48,27 +56,9 @@ export class InputDetailsComponent implements OnInit {
     this.radioValue = msg
   }
 
-  getmonthValue(msg: any){
-    console.log(msg)
-    this.monthValue = msg
-  }
-
-  getYearValue(msg: any){
-    console.log(msg)
-    this.yearValue = msg
-  }
-
   getTaxValue(msg:any){
     console.log(msg);
     this.taxValue = msg
-  }
-
-  @Output() submitData = new EventEmitter();
-
-  onSubmit(event:any){
-    console.log("submit value : ", event)
-    this.submitData.emit(event);
-
   }
 
 }
