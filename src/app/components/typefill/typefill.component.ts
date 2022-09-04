@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-typefill',
@@ -8,13 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class TypefillComponent implements OnInit {
 
   Types = [
-    {id: "0", name: "Select Types"},
     {id: "1", name: "On-Time"},
     {id: "2", name: "Late"} 
   ];
   selectedTypeValue = null;
 
-  constructor() { }
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
