@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit,  TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-review-confirm',
@@ -6,11 +8,23 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./review-confirm.component.scss']
 })
 export class ReviewConfirmComponent implements OnInit {
+ 
+  modalRef?: BsModalRef;
 
-  constructor() { }
+  config ={
+    animated: true
+  }
+
+  constructor(public one: OneService , private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
+
+ 
+  openModal(template: TemplateRef<any>){
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
 
 
 }
