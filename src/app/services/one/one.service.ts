@@ -5,23 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class OneService {
 
-  public typFilling: string = "undifined";
-  public month: string = "undifined";
-  public year: string = "undifined";
+  public typeFilling: string = "Ordinary Filling";
+  public month: string =  "" ;
+  public year: string = "";
   public money: number = 0.00;
-  public tex: number = 0.00;
+  public tax: number = 0.00;
   public surchange: number = 0.00;
-  public penalty: number = 0.00;
+  public penalty: number = 200.00;
   public totalAmount: number = 0.00;
   
   constructor() { }
 
   // public setValue(data: any): void {
-  //   this.tex = data;
+  //   this.tax = data;
   //   this.money = data;
   // }
 
   // public getValue(): string {
-  //   return this.tex;
+  //   return this.tax;
   // }
 }
