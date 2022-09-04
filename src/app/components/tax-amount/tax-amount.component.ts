@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-tax-amount',
@@ -14,7 +15,7 @@ export class TaxAmountComponent implements OnInit {
   @Output() 
   taxValueEmitter = new EventEmitter();
   
-  constructor() { }
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,12 @@ export class TaxAmountComponent implements OnInit {
   taxValue(e: any){
     console.log(e.target.value)
     this.taxValueEmitter.emit(e.target.value)
+  }
+
+  setTaxConfirm(saleValueResult: any){
+    console.log(saleValueResult)
+    this.one.tax = saleValueResult
+
   }
 
 }
