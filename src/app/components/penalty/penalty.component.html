@@ -2,11 +2,15 @@
     <div class="function-title">
         <div class="row">
             <div class="col-sm-8 mt-1">
-              <div> 4. Penalty </div>
+              <div> 4. Penalty 
+                <span>
+                    <mat-icon class="icon-size">help</mat-icon>
+                </span>
+              </div>
             </div>
             <div class="col-sm-4">              
                 <div class="form-group">
-                    <input type="number" class="form-control placeholder-text" placeholder="THB" placeholder=" 0.00 THB" readonly disabled>
+                    <input type="number" class="form-control placeholder-text" placeholder="THB" placeholder=" 0.00 THB" readonly value="" (click)="sendpenalty($event)">
                 </div>
             </div>
             </div>

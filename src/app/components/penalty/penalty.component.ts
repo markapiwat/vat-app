@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-penalty',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PenaltyComponent implements OnInit {
 
-  constructor() { }
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
+  }
+
+  sendpenalty(event:any){
+    this.one.penalty = event
   }
 
 }
