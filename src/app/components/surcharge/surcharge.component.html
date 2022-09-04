@@ -1,11 +1,16 @@
 <div class="function-title">
         <div class="row">
             <div class="col-sm-8">
-              <div>3. SurCharge </div>
+              <div>3. SurCharge 
+                <span>
+                    <mat-icon class="icon-size">help</mat-icon>
+                </span>
+              </div>
             </div>
             <div class="col-sm-4">              
                 <div class="form-group">
-                    <input class="form-control placeholder-text" type="number" placeholder=" 0.00 THB" readonly disabled >
+                    <input class="form-control placeholder-text" type="number" placeholder=" 0.00 THB" [value]="taxValueResult" 
+                    (click)="surChargeValue($event)" readonly (click)="setSurcharge(taxValueResult)" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.00">
                 </div>
             </div>
         </div>

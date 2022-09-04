@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-total-amount',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TotalAmountComponent implements OnInit {
 
-  constructor() { }
+ 
+
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }
