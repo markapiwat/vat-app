@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class FillingTypeComponent implements OnInit {
 
   @Output() selectRadioEmitter = new EventEmitter()
 
-  constructor() { }
+  constructor( public one: OneService) { }
 
   ngOnInit() {   
   }
@@ -31,6 +32,8 @@ export class FillingTypeComponent implements OnInit {
     this.selectRadioEmitter.emit(e.target.value);
   }
 
-
+  setFilingType(string: string){
+    this.one.typeFilling = string
+  }
 
 }

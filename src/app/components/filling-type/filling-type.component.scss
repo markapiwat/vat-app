@@ -2,17 +2,6 @@
     margin-left: 16px;
   }
 
-.function-title{
-    text-align: left;
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    height: 100%;
-    
-}
-
 .function-title-sub{
     text-align: left;
     padding-top: 10px;
@@ -22,8 +11,36 @@
     
 }
 
+.icon-size{
+    font-size: 16px;
+}
+
+.radio-space{
+    padding-right: 55px;
+    padding-left: 2px;
+}
+
+
 .section-detail{
     text-align: left;
     padding-bottom: 20px;
 }
 
+.input-check{
+    width: 1em;
+    height: 1em;
+    padding-bottom: 5px;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+    font-size: 25px;
+}
+
+.radio-position{
+    padding-left: 8px;
+    font-size:15px; 
+    padding-top: 10px;
+}
