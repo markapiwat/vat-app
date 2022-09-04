@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <form>
+
         <div class="card">
             <div class="function-title ">Tax Filling Detail</div>
           <div class="titleline"></div>
@@ -25,7 +25,7 @@
                 <div>Type of Filling </div>
                 </div>
                 <div class="col-sm-2 mt-2">              
-                    -
+                    {{ one.typeFilling }}
                 </div> 
             </div>
                 <div class="row">
@@ -33,7 +33,7 @@
                     <div>Vat Month </div>
                     </div>
                     <div class="col-sm-2 mt-2">              
-                        <div>  - </div>
+                        <div> {{ one.month }}  {{ one.year }} </div>
                     </div>
                 </div>
           </div>
@@ -44,6 +44,7 @@
             </div>
             <div class="titleline"></div>
 
+        
             <div class="function-title-normal">
                 <div class="row">
                     <div class="col-sm-7">
@@ -51,7 +52,7 @@
                     </div>
                     <div class="col-sm-5">              
                         <div class="form-group">
-                            <div> 0.00 THB </div>
+                            <div> {{ one.money }} <span class="space">THB</span></div>
                         </div>
                     </div>
                 </div>
@@ -65,12 +66,13 @@
                     </div>
                     <div class="col-sm-5">              
                         <div class="form-group">
-                            <div> 0.00 THB </div>
+                            <div> {{ one.tax }} <span class="space">THB</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
+        <div *ngIf=" one.typeFilling == 'Ordinary Filling' ">
             <div class="function-title-normal">
                 <div class="row">
                     <div class="col-sm-7">
@@ -78,11 +80,33 @@
                     </div>
                     <div class="col-sm-5">              
                         <div class="form-group">
-                            <div> 0.00 THB </div>
+                            
+                                <div>{{ one.tax + one.surchange + one.penalty - 200 }}  <span class="space">THB</span></div> 
+                           
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+            
+
+            <div *ngIf=" one.typeFilling == 'Additional Filling' ">
+                <div class="function-title-normal">
+                    <div class="row">
+                        <div class="col-sm-7">
+                        <div>Total Amount Payable </div>                    
+                        </div>
+                        <div class="col-sm-5">              
+                            <div class="form-group">
+                                
+                                    <div>{{ one.tax + one.surchange + one.penalty }}  <span class="space">THB</span></div> 
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
             
             <div class="function-title ">Declaration</div>
             <div class="titleline"></div>
@@ -94,11 +118,23 @@
 
         <div class="container">
             <div class="button-align">
-            <button type="button" class="btn btn btn-dark m-4 " mat-button >Next</button>
+            <button type="button" class="btn btn btn-dark m-4 " mat-button (click)="openModal(template)">Confirm & Submit</button>
             </div>
         </div>
-      </form>
-
+        
 
 
 </div>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirm & Submit</h4>
+      <button type="button" class="close btn-close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      TaxData : 
+      <pre>{{ one | json }}</pre>
+    </div>
+  </ng-template>
