@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-sale-amount',
@@ -13,7 +14,7 @@ export class SaleAmountComponent implements OnInit {
   salevalueEmitter = new EventEmitter();
 
 
-  constructor() { }
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,11 @@ export class SaleAmountComponent implements OnInit {
   saleValue(e:any){
     console.log(e.target.value);
     this.salevalueEmitter.emit(e.target.value);
+  }
+
+  saleValueConfirm(event: any){
+    this.one.money = event.target.value
+    console.log(event)
   }
 
 }
