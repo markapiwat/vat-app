@@ -1,6 +1,7 @@
     <div class="form-group">
-        <div>Vat Month <span style="color: red;">*</span>  </div>
-        <select class="form-control" [(ngModel)]="selectedMonthValue" (click)="monthvalue($event)" >
-            <option *ngFor="let m of Months" [ngValue]="m"> {{m.name}} </option>
+        <div>Vat Month <span class="redDot">*</span>  </div>
+        <select class="form-control" [(ngModel)]="selectedMonthValue"  (click)="sendMonth(selectedMonthValue)" >
+            <option [ngValue]="null" disabled >Select Month</option>
+            <option *ngFor="let m of Months" [ngValue]="m.name" > {{m.name}} </option>
         </select>
     </div>

@@ -1,4 +1,6 @@
+import { NgForOf } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OneService } from 'src/app/services/one/one.service';
 
 @Component({
   selector: 'app-month',
@@ -8,7 +10,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class MonthComponent implements OnInit {
 
   Months = [
-    {id: "00", name: "Select Month"},
     {id: "01", name: "January"},
     {id: "02", name: "Febuary"},
     {id: "03", name: "March"},
@@ -22,9 +23,10 @@ export class MonthComponent implements OnInit {
     {id: "11", name: "November"},
     {id: "12", name: "December"}
   ];
-  selectedMonthValue = null;
 
-  constructor() { }
+  selectedMonthValue = "";
+
+  constructor(public one: OneService) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +36,13 @@ export class MonthComponent implements OnInit {
 
   monthvalue(e:any){
     console.log(e.target.value);
-    this.monthValueEmitter.emit(e.target.value);
+    this.monthValueEmitter.emit(e.target.name);  
   }
+
+  sendMonth(selectedMonthValue:string){
+    this.one.month = selectedMonthValue;
+    console.log("Select month : " , this.one.month)
+  }
+
 
 }
