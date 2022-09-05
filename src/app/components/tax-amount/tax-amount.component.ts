@@ -25,10 +25,5 @@ export class TaxAmountComponent implements OnInit {
     this.taxValueEmitter.emit(e.target.value)
   }
 
-  setTaxConfirm(saleValueResult: any){
-    console.log(saleValueResult)
-    this.one.tax = saleValueResult
-
-  }
 
 }

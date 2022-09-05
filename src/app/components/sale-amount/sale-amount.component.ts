@@ -30,7 +30,12 @@ export class SaleAmountComponent implements OnInit {
   }
 
   setTotal(){
-    this.one.totalAmount = this.one.tax+this.one.surchange 
+    this.one.totalAmount = this.one.tax + this.one.surchange 
+  }
+
+  setTax(saleValueResult: any){
+    const taxPercent = 0.07;
+    this.one.tax = saleValueResult * taxPercent;
   }
 
 }
