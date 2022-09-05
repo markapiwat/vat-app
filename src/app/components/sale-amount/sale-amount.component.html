@@ -6,10 +6,10 @@
         </div>
         <div class="col-sm-4">              
             <div class="form-group">
-                <input type="number" required class="form-control placeholder-text" placeholder="THB" value="" (input)="saleValue($event)" [(ngModel)]="saleValueResult" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.00" (input)="saleValueConfirm($event)">
+                <input type="number" required class="form-control placeholder-text" placeholder="THB" value="" 
+                (input)="saleValue($event)" [(ngModel)]="saleValueResult" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" 
+                step="0.00" (input)="saleValueConfirm($event)" (click)="setTotal()" >
             </div>
         </div>
         </div>        
 </div>
-
-<!--  [(ngModel)]="saleValueToTax" -->

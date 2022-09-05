@@ -29,4 +29,8 @@ export class SaleAmountComponent implements OnInit {
     console.log(event)
   }
 
+  setTotal(){
+    this.one.totalAmount = this.one.tax+this.one.surchange 
+  }
+
 }

@@ -16,7 +16,6 @@
   
     <div class="card">
         
-        
           <div class="function-title "> 1. Tax Filling Detail</div>
           <div class="titleline"></div>
 
@@ -77,19 +76,14 @@
                   
                   <app-tax-amount [saleValueResult]="saleTotax(saleValueResult)" (taxValueEmitter)="getTaxValue($event)"></app-tax-amount>
 
-                  <input type="hidden" [value]="taxValue">
+                <div class="mt-4 mb-4"></div>
+            </div>
 
-                  <div class="mt-4 mb-4"></div>
-                </div>
-
-                <div  *ngIf="radioValue === '1'">
+              <div  *ngIf="radioValue === '1'">
                   <div class="sub-title">Provide total value taxable electronic service <span style="color: red;"> * </span>  </div>
                   
                   <app-sale-amount (salevalueEmitter)="saleAmount($event)" ></app-sale-amount>
-                  
                   <app-tax-amount [saleValueResult]="saleTotax(saleValueResult)" (taxValueEmitter)="getTaxValue($event)"></app-tax-amount> 
-
-                  
 
                   <div class="sub-title">in case of late filling and payment, or additional filling </div>
 
@@ -97,9 +91,9 @@
                   <app-penalty ></app-penalty>
                   <app-total-amount ></app-total-amount>
 
-
                 </div>
-                  </div>
+
+            </div>
     <div  *ngIf="radioValue === '0' ">
     <div class="container-fluid p-3">
       <div class="container btn-footer">

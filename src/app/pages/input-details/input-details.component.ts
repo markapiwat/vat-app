@@ -40,12 +40,7 @@ export class InputDetailsComponent implements OnInit {
     const surPercent = 0.1;
     return taxValue * surPercent;
   }
-  
-  taxAmount(taxValue: any){
-    const penalty = this.one.penalty;
-   return this.SurchargeValue + taxValue + penalty;
-  }
- 
+   
 
   getSurcharge(msg:any){
     this.SurchargeValue = msg
